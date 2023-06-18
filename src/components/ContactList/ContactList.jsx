@@ -32,16 +32,16 @@ export const ContactListItems = () => {
 
 export const ContactList = ({ item }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
+  if (!item) {
+    return null;
+  }
 
   return (
     <List>
       return (
       <ListItem>
-        <span>
-          <span>{item.name}</span>
-          <span>{item.phone}</span>
-        </span>
-
+        <span>{item.name}</span>
+        <span>{item.phone}</span>
         <ListBtn
           type="button"
           disabled={isLoading}

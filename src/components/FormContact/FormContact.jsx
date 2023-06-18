@@ -36,7 +36,7 @@ export const FormContact = () => {
   return (
     <>
       <Form onSubmit={onSubmit}>
-        <FormLabel htmlFor={name}>
+        <FormLabel htmlFor="name">
           Name
           <FormInput
             type="text"
@@ -48,18 +48,20 @@ export const FormContact = () => {
             required
           />
         </FormLabel>
-        <FormLabel htmlFor={phone}>
+
+        <FormLabel htmlFor="number">
           Number
           <FormInput
             type="tel"
             name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            pattern="\\+?\\d{1,4}[-.\\s]?\\(\\d{1,3}\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
             value={phone}
             onChange={e => setPhone(e.target.value)}
           />
         </FormLabel>
+
         <Button type="submit" disabled={isLoading}>
           {isLoading ? <Spinner /> : 'Add contact'}
         </Button>
